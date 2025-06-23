@@ -2,7 +2,7 @@
 node_modules
 
 #
-/dist
+dist
 
 #environment variable
 .env
