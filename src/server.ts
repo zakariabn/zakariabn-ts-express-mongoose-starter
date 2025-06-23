@@ -1,16 +1,15 @@
 import { Server } from "http";
 import { app } from "./app";
 import "dotenv/config";
-import mongoose from "mongoose";
+import connectDB from "./config/database";
 
 let server: Server;
 const PORT = process.env.PORT || 5000;
-const MONGO_URI: string = process.env.MONGO_URI || "";
 
 async function main() {
   try {
-    await mongoose.connect(MONGO_URI);
-    console.log("🟢 Connected to the database");
+    await connectDB();
+
     server = app.listen(PORT, () => {
       console.log(`✅ Example app listening on port ${PORT}`);
     });
